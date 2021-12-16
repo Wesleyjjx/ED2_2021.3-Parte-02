@@ -1,7 +1,8 @@
-#ifndef moduloteste_H_INCLUDED
-#define moduloteste_H_INCLUDED
+#ifndef MODULOTESTE_H_INCLUDED
+#define MODULOTESTE_H_INCLUDED
 
 #include <vector>
+#include "TikTokData.h"
 
 class moduloteste
 {
@@ -14,4 +15,4 @@ class moduloteste
 
 };
 
-#endif
+#endif // MODULOTESTE_H_INCLUDED

@@ -22,7 +22,7 @@ void moduloteste::acessaRegistro(int i,vector<TikTokData> dados)
     cout << "UpVotes: " << dados.at(i).getUpVotes() << endl;
     cout << "AppVersion: " << dados.at(i).getAppVersion() << endl;
     cout << "PostDate: " << dados.at(i).getPostDate() << endl;
-};  
+};
 
 void moduloteste::testeImportacao(vector<TikTokData> dados)
 {
@@ -44,7 +44,7 @@ void moduloteste::testeImportacao(vector<TikTokData> dados)
            cout << "Review: " << dados.at(i).getReview() << endl;
            cout << "UpVotes: " << dados.at(i).getUpVotes() << endl;
            cout << "AppVersion: " << dados.at(i).getAppVersion() << endl;
-           cout << "PostDate: " << dados.at(i).getPostDate() << endl;   
+           cout << "PostDate: " << dados.at(i).getPostDate() << endl;
         }
 
     }
@@ -69,7 +69,7 @@ void moduloteste::testeImportacao(vector<TikTokData> dados)
             text.at(cout).setUpVotes(dados.at(ale).getUpVotes());
             text.at(cout).setAppVersion(dados.at(ale).getAppVersion());
             text.at(cout).setPostDate(dados.at(ale).getPostDate());
-            
+
             wr.write((char *) &text.at(count),text.at(count).size())
         }
         wr.close();
@@ -77,6 +77,6 @@ void moduloteste::testeImportacao(vector<TikTokData> dados)
     else
     {
         cout << "ERRO:Operacao invalida."<< endl;
-        return; 
+        return;
     }
 };
