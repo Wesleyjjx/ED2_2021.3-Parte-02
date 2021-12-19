@@ -1,5 +1,9 @@
 #include "SortData.h"
 
+#include <iostream>
+#include <vector>
+#include <chrono>
+
 SortData::SortData(int x, int sizeData) {
     this->moveCount = 0;
     this->compCount = 0;

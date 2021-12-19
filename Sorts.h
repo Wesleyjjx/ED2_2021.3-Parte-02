@@ -4,7 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include <thread>
+#include <cstdio>
+#include <unistd.h>
+#include <cstdlib>
 
 #include "TikTokData.h"
 #include "SortData.h"
@@ -24,7 +26,7 @@ class Sorts {
 
         void quickSort(vector<TikTokData> dados, int lowIndex, int highIndex);
         void heapSort();
-        void sleepSort();
+        void countingSort(vector<TikTokData> dados, int n);
 
 };
 
