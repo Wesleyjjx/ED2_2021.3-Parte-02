@@ -3,21 +3,26 @@
 
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <thread>
+
 #include "TikTokData.h"
 #include "SortData.h"
+#include "moduloteste.h"
 
 class Sorts {
 
     private:
 
         int z;
+        void quickSortPartition(vector<TikTokData> dados, int lowIndex, int highIndex);
 
     public:
 
         Sorts();
         ~Sorts();
 
-        void quickSort();
+        void quickSort(vector<TikTokData> dados, int lowIndex, int highIndex);
         void heapSort();
         void sleepSort();
 
