@@ -24,7 +24,9 @@ class Sorts {
         Sorts();
         ~Sorts();
 
-        void quickSort(vector<TikTokData> dados, int lowIndex, int highIndex);
+        void quickSort(vector<TikTokData> &data, int lowIndex, int highIndex, SortData *info);
+        int partitionQuickSort(vector<TikTokData> dados, int lowIndex, int highIndex, SortData *info);
+
         void heapSort();
         void countingSort(vector<TikTokData> dados, int n);
 

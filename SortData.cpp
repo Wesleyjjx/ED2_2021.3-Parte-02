@@ -9,7 +9,7 @@ SortData::SortData(int x, int sizeData) {
     this->compCount = 0;
     this->totalTime = 0;
     for(int i = 0; i < x ;i++) {
-        this->dataIndex.push_back(rand() % dataSize);
+        this->keyVector.push_back(rand() % sizeData);
     }
 }
 
@@ -49,7 +49,7 @@ void SortData::setBeginTime(chrono::time_point<chrono::high_resolution_clock> st
 }
 
 void SortData::setEndTime(chrono::time_point<chrono::high_resolution_clock> endd) {
- this->endTime = endde;
+ this->endTime = endd;
 }
 
 void SortData::setTotalime(double total) {
@@ -75,10 +75,10 @@ void SortData::setTotalTime() {
     this->totalTime = chrono::duration_cast<chrono::milliseconds>(this->endTime - this->beginTime).count();
 }
 
-int SortData::getKeyVectorSize()){
+int SortData::getKeyVectorSize(){
     return this->keyVector.size();
 }
 
 int SortData::getIndexFromKeyVector(int index){
-    return this.keyVector(index);
+    return this->keyVector[index];
 }
