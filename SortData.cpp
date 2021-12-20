@@ -4,10 +4,11 @@
 #include <vector>
 #include <chrono>
 
-SortData::SortData(int x, int sizeData) {
+SortData::SortData(int x, int sizeData, string sortName) {
     this->moveCount = 0;
     this->compCount = 0;
     this->totalTime = 0;
+    this->sortName = sortName;
     for(int i = 0; i < x ;i++) {
         this->keyVector.push_back(rand() % sizeData);
     }

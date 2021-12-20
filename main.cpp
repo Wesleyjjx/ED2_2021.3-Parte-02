@@ -28,7 +28,7 @@ int main()
     // Doesn't work for negative numbers
     int arr[] = {34, 23, 122, 9};
     int n = sizeof(arr) / sizeof(arr[0]);
-    Sorts c;
+    Sorts c(n);
     std::vector<TikTokData> dados;
     //s.sleepSort(arr, n);
     return 0;

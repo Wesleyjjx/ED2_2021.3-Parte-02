@@ -11,6 +11,8 @@ class SortData
 {
     private:
 
+        string sortName;
+
         int moveCount;
         ///número de movimentações
 
@@ -31,7 +33,7 @@ class SortData
 
     public:
 
-        SortData(int n, int dataSize);
+        SortData(int n, int dataSize, string sortName);
         ~SortData();
 
         int getMoveCount();
