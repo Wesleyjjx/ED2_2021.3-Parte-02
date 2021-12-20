@@ -60,6 +60,8 @@ void Hash::versions(vector <tiktokdata>,int n,int m)
     //faz busca dos M versoes com maiores frequencia.
         while(m > 0)
         {
+            bool achado = false;
+
             for(int b = 0;b != frequencia.end();b++)
             {
                 if(frequencia.at(b) == maior)
@@ -73,14 +75,17 @@ void Hash::versions(vector <tiktokdata>,int n,int m)
                             {
                                 //se encontrado, ira imprimi-lo e reduzira o maior procurado e diminuira os elementos restantes para a impressao.
                                 cout << puts(x) << " : " << frequencia.at(b) << endl;
+                                achado = true;
                                 maior--;
                                 m--;
                             }
                         }
                     }
-                    maior--;
                 }
             }
+
+            if(achado == false)
+              maior--;
         }
 
     rd.close();
