@@ -29,7 +29,7 @@ class Sorts {
         void heapSortRise(TikTokData d, SortData *info);
         ///função de subir o review do Heap Sort
 
-        void heapSortDrop(TikTokData d, SortData *info);
+        void heapSortDrop(TikTokData father, SortData *info);
         ///função de descer o review do Heap Sort
 
         void quickSortPartition(vector<TikTokData> dados, int lowIndex, int highIndex);
@@ -38,14 +38,21 @@ class Sorts {
     public:
 
         Sorts(int heapSortNReviews);
+
         ~Sorts();
 
+
         void quickSort(vector<TikTokData> &data, int lowIndex, int highIndex, SortData *info);
+
         int partitionQuickSort(vector<TikTokData> &dados, int lowIndex, int highIndex, SortData *info);
 
+
         TikTokData heapSortGetRoot();
+
         heapSortGetPositionFromElement(TikTokData d);
+
         void heapSortInsert(TikTokData d, SortData *info);
+
 
         void countingSort(vector<TikTokData> dados, int n);
 

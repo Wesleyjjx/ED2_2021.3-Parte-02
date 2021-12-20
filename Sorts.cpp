@@ -68,8 +68,66 @@ void Sorts::heapSortRise(TikTokData d, SortData *info) {
         heapSortRise(father, info);
     }
     else {
+
         info->addCompCount();
+
     }
+}
+
+void Sorts::heapSortDrop(TikTokData father, SortData *info) {
+
+    int maxChildIndex = 2 * heapSortGetPositionFromElement(father) + 1;
+
+    if(maxChildIndex < heapSortNReviews) {
+
+        info->addCompCount();
+
+        if(maxChildIndex + 1 < heapSortNReviews) {
+
+            info->addCompCount();
+
+            if(heapSortArray[maxChildIndex + 1].getUpVotes() > heapSortArray[maxChildIndex].getUpVotes()) {
+
+                info->addCompCount();
+
+                maxChildIndex++;
+
+            }
+
+            else {
+
+                info->addCompCount();
+
+            }
+        }
+
+        else {
+
+            info->addCompCount();
+
+        }
+
+        if(father.getUpVotes() < heapSortArray[maxChildIndex].getUpVotes()) {
+
+            info->addCompCount();
+
+            swap(father, heapSortArray[maxChildIndex]);
+
+            info->addMoveCount();
+
+            heapSortDrop(heapSortArray[maxChildIndex], info);
+
+        }
+
+        else {
+
+            info->addCompCount();
+
+        }
+
+
+    }
+
 }
 
 
