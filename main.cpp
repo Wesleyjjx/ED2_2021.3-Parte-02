@@ -14,22 +14,6 @@
 
 using namespace std;
 
-void printArray(int a[], int n)
-{
-    cout << "{";
-    for (int i = 0; i < n; i++)
-    {
-        if (i == n - 1)
-        {
-            cout << a[i] << "}" << endl;
-        }
-        else
-        {
-            cout << a[i] << ", ";
-        }
-    }
-}
-
 int main()
 {
     std::vector<TikTokData> dados;
@@ -51,9 +35,10 @@ int main()
     if(i==1)
     {
         Sorts *ord= new Sorts();
-        ord->quickSort(dados,dados.begin(),dados.end());
-        ord->heapSort(dados);
-        ord->quickSort(dados,dados.size());
+        ord->quickSort(dados,dados.begin(),dados.end(),SortData * info);
+        ord->heapSort();
+        ord->countingSort(dados,dados.size());
+        delete[] ord;
     }
     else if(i==2)
     {
@@ -62,6 +47,7 @@ int main()
         cin>>m;
         hash *version = new Hash;
         version->versions(dados,dados.size(),m);
+        delete[] version;
 
     }
     else if(i==3)
@@ -75,20 +61,19 @@ int main()
             cout << " ERRO: Arquivo nao aberto. " << endl;
             return  1 ;
         }
-        arquivotxt<<ordTeste->quickSort(t,t.begin(),t.end())<< endl;
-        arquivotxt<<ordTeste->heapSort(t)<< endl;
-        arquivotxt<<ordTeste->quickSort(t,t.size())<< endl;
+        arquivotxt<<ordTeste->quickSort(t,t.begin(),t.end(),SortData * info)<< endl;
+        arquivotxt<<ordTeste->heapSort()<< endl;
+        arquivotxt<<ordTeste->countingSort(dados,dados.size());
+                << endl;
         arquivotxt<<version1->versions(dados,dados.size(),m);
 
         arquivotxt.close();
+        delete[] ordTeste;
+        delete[] version1;
     }
     else
         cout<<"operacao invalida"<<endl;
 
-    delete[] ord;
-    delete[] ordTeste;
-    delete[] version;
-    delete[] version1;
     return 0;
 }
 
