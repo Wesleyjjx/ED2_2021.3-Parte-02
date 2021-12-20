@@ -51,7 +51,7 @@ int main()
     if(i==1)
     {
         Sorts *ord= new Sorts();
-        ord->quickSort(dados);
+        ord->quickSort(dados,dados.begin(),dados.end());
         ord->heapSort(dados);
         ord->quickSort(dados,dados.size());
     }
@@ -75,7 +75,7 @@ int main()
             cout << " ERRO: Arquivo nao aberto. " << endl;
             return  1 ;
         }
-        arquivotxt<<ordTeste->quickSort(t,0,99)<< endl;
+        arquivotxt<<ordTeste->quickSort(t,t.begin(),t.end())<< endl;
         arquivotxt<<ordTeste->heapSort(t)<< endl;
         arquivotxt<<ordTeste->quickSort(t,t.size())<< endl;
         arquivotxt<<version1->versions(dados,dados.size(),m);
