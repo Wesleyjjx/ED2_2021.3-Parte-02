@@ -12,8 +12,27 @@
 
 using namespace std;
 
+
+
 int main()
 {
+    int n;
+
+    FileReader f;
+
+    moduloteste mt;
+
+    n = 10000;
+
+
+
+    n = 50000;
+
+    n = 100000;
+
+    n = 500000;
+
+    n = 1000000;
 
     //Sorts c(n);
     std::vector<TikTokData> dados;
