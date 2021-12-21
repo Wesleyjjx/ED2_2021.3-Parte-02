@@ -76,6 +76,6 @@ void moduloteste::testeImportacao(vector<TikTokData> dados)
     else
     {
         cout << "ERRO:Operacao invalida."<< endl;
-        return;
+        exit(1);
     }
 };
