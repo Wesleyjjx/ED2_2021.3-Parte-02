@@ -54,7 +54,7 @@ class Sorts {
         void heapSortInsert(TikTokData d, SortData *info);
 
 
-        void countingSort(vector<TikTokData> dados, int n);
+        void countingSort(vector<TikTokData> &data, SortData *info);
 
 };
 

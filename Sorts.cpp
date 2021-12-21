@@ -55,17 +55,17 @@ int Sorts::heapSortGetPositionFromElement(TikTokData d) {
 
 void Sorts::heapSortRise(TikTokData d, SortData *info) {
 
-    TikTokData father = heapSortArray[(heapSortGetPositionFromElement(d) - 1)/ 2];
+    int fatherIndex = (heapSortGetPositionFromElement(d) - 1)/ 2;
 
-    if(father.getUpVotes() < d.getUpVotes()) {
+    if(heapSortArray[fatherIndex].getUpVotes() < d.getUpVotes()) {
 
         info->addCompCount();
 
-        swap(father, d);
+        swap(heapSortArray[fatherIndex], d);
 
         info->addMoveCount();
 
-        heapSortRise(father, info);
+        heapSortRise(heapSortArray[fatherIndex], info);
     }
     else {
 
@@ -99,6 +99,7 @@ void Sorts::heapSortDrop(TikTokData father, SortData *info) {
                 info->addCompCount();
 
             }
+
         }
 
         else {
@@ -125,6 +126,11 @@ void Sorts::heapSortDrop(TikTokData father, SortData *info) {
 
         }
 
+    }
+
+    else {
+
+        info->addCompCount();
 
     }
 
@@ -190,6 +196,58 @@ void Sorts::quickSort(vector<TikTokData> &data, int lowIndex, int highIndex, Sor
 }
 
 
-void Sorts::countingSort(vector<TikTokData> dados, int n) {
+void Sorts::countingSort(vector<TikTokData> &data, SortData *info) {
 
+    int maxVotes = data[0].getUpVotes(), minVotes = data[0].getUpVotes();
+
+    for(int i = 1; i < data.size();i++) {
+
+        if(data[i].getUpVotes() > maxVotes) {
+
+            maxVotes = data[i].getUpVotes();
+
+        }
+
+        if(data[i].getUpVotes() < minVotes) {
+
+            minVotes = data[i].getUpVotes();
+
+        }
+
+    }
+
+    int range = maxVotes - minVotes + 1;
+
+    vector<int> count(range);
+
+    for(int i = 0; i < data.size(); i++) {
+
+        count[data[i].getUpVotes() - minVotes]++;
+
+    }
+
+    for(int i = 1; i < count.size(); i++) {
+
+        count[i] += count[i - 1];
+    }
+
+    vector<TikTokData> sorter(data.size());
+
+    for(int i = data.size() - 1; i >= 0; i--) {
+
+        sorter[count[data[i].getUpVotes() - minVotes] - 1] = data[i];
+
+        if(count[data[i].getUpVotes() - minVotes] - 1 != i) {
+
+            info->addMoveCount();
+        }
+
+        count[data[i].getUpVotes() - minVotes]--;
+    }
+
+    for(int i = 0; i < data.size();i++) {
+
+        data[i] = sorter[i];
+
+    }
 }
