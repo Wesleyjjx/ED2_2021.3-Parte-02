@@ -33,8 +33,10 @@ class SortData
 
     public:
 
-        SortData(int n, int dataSize, string sortName);
+        SortData(int n, int dataSize);
         ~SortData();
+
+        string getSortName();
 
         int getMoveCount();
         int getCompCount();
@@ -42,6 +44,8 @@ class SortData
         chrono::time_point<chrono::high_resolution_clock> getBeginTime();
         chrono::time_point<chrono::high_resolution_clock> getEndTime();
         float getTotalTime();
+
+        void setSortName(string sortName);
 
         void setMoveCount(int moveNumber);
         void setCompCount(int compNumber);
