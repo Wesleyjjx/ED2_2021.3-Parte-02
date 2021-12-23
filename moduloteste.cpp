@@ -4,7 +4,6 @@
 
 #include "moduloteste.h"
 
-
 using namespace std;
 
 moduloteste::moduloteste()
@@ -15,36 +14,36 @@ moduloteste::~moduloteste()
 {
 };
 
-void moduloteste::acessaRegistro(int i,vector<TikTokData> dados)
+void moduloteste::acessaRegistro(int i, vector<TikTokData> dados)
 {
     cout << "Id: " << dados.at(i).getId() << endl;
     cout << "Review: " << dados.at(i).getReview() << endl;
     cout << "UpVotes: " << dados.at(i).getUpVotes() << endl;
     cout << "AppVersion: " << dados.at(i).getAppVersion() << endl;
     cout << "PostDate: " << dados.at(i).getPostDate() << endl;
-};  
+};
 
 void moduloteste::testeImportacao(vector<TikTokData> dados)
 {
-    int i,cout;
+    int i, couti;
 
-    cout << "[1] exibir saida" << endl << "[2] salvar em arquivo texto" << endl ;
-    cin >> i;
+    std::cout << "[1] exibir saida" << std::endl << "[2] salvar em arquivo texto" << std::endl ;
+    std::cin >> i;
 
     if(i == 1)
     {
         int ale;
 
-        for(cout = 0,cout < 10,cout++)
+        for(couti = 0; couti < 10; couti++)
         {
            srand (time(NULL));
            ale = rand() % 3500000;
-           cout << "Registro " << cout+1 << ": " << endl;
-           cout << "Id: " << dados.at(i).getId() << endl;
-           cout << "Review: " << dados.at(i).getReview() << endl;
-           cout << "UpVotes: " << dados.at(i).getUpVotes() << endl;
-           cout << "AppVersion: " << dados.at(i).getAppVersion() << endl;
-           cout << "PostDate: " << dados.at(i).getPostDate() << endl;   
+           std::cout << "Registro " << couti + 1 << ": " << std::endl;
+           std::cout << "Id: " << dados.at(i).getId() << std::endl;
+           std::cout << "Review: " << dados.at(i).getReview() << std::endl;
+           std::cout << "UpVotes: " << dados.at(i).getUpVotes() << std::endl;
+           std::cout << "AppVersion: " << dados.at(i).getAppVersion() << std::endl;
+           std::cout << "PostDate: " << dados.at(i).getPostDate() << std::endl;
         }
 
     }
@@ -56,27 +55,27 @@ void moduloteste::testeImportacao(vector<TikTokData> dados)
         if(!wr.is_open())
         {
             cout << "ERRO:Arquivo nao aberto." << endl;
-            return 1;
+            exit(1);
         }
 
-        for(cout = 0,cout < 100,cout++)
+        for(couti = 0; couti < 100; couti++)
         {
             srand (time(NULL));
             ale = rand() % 3500000;
             vector<TikTokData> text;
-            text.at(cout).setId(dados.at(ale).getId());
-            text.at(cout).setReview(dados.at(ale).getReview());
-            text.at(cout).setUpVotes(dados.at(ale).getUpVotes());
-            text.at(cout).setAppVersion(dados.at(ale).getAppVersion());
-            text.at(cout).setPostDate(dados.at(ale).getPostDate());
-            
-            wr.write((char *) &text.at(count),text.at(count).size())
+            text.at(couti).setId(dados.at(ale).getId());
+            text.at(couti).setReview(dados.at(ale).getReview());
+            text.at(couti).setUpVotes(dados.at(ale).getUpVotes());
+            text.at(couti).setAppVersion(dados.at(ale).getAppVersion());
+            text.at(couti).setPostDate(dados.at(ale).getPostDate());
+
+            wr.write((char *) &text.at(couti), sizeof(text.at(couti)));
         }
         wr.close();
     }
     else
     {
         cout << "ERRO:Operacao invalida."<< endl;
-        return; 
+        exit(1);
     }
 };
